@@ -158,7 +158,7 @@ public partial class Admin_Admin : System.Web.UI.Page
 
     }
 
-    private void InitializeComponent()
+    private void InitializeComponent() // adds event functions
     {
         this.SaveStateComplete += new System.EventHandler(this.EventFunction_SetSportBoxes);
 
