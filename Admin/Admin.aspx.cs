@@ -160,7 +160,7 @@ public partial class Admin_Admin : System.Web.UI.Page
 
     private void InitializeComponent() // adds event functions
     {
-        this.SaveStateComplete += new System.EventHandler(this.EventFunction_SetSportBoxes);
+        //this.SaveStateComplete += new System.EventHandler(this.EventFunction_SetSportBoxes); // Did not work
 
     }
 
