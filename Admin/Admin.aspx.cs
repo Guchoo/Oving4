@@ -45,11 +45,11 @@ public partial class Admin_Admin : System.Web.UI.Page
         SqlDataAdapter MyAdapter;
         DataTable MyTable;
 
-        MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-        string query = @"
-            select [Table].Id,Sport, case when UserInSport.UserID is null then '0' else '1' end as active from [Table] 
+            MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+            string query = @"
+            select Sport.Id,Sport, case when UserInSport.UserID is null then '0' else '1' end as active from Sport 
             full join UserInSport 
-            on [Table].Id = UserInSport.SportID
+            on Sport.Id = UserInSport.SportID
             where UserInSport.UserID = @userid"; // Nice tips: @ på start
 
         MyCommand = new SqlCommand(query, MyConnection);
