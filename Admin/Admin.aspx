@@ -19,6 +19,7 @@ WHERE UserInSport.UserID=@user">
             <asp:ControlParameter ControlID="DropDownList1" DefaultValue="NULL" Name="user" PropertyName="SelectedValue" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:Button ID="Button1" runat="server" OnClick="btnSaveSports_Click" Text="Lagre" />
     <asp:Label ID="Ut" runat="server"></asp:Label>
 </asp:Content>
 
