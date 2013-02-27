@@ -7,5 +7,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
     <asp:Image ID="UserImg" runat="server" Height="82px" Width="81px" />
     <asp:Label ID="Navnlbl" runat="server" Text=""></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 </asp:Content>
 

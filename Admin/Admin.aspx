@@ -21,5 +21,6 @@ WHERE UserInSport.UserID=@user">
     </asp:SqlDataSource>
     <asp:Button ID="Button1" runat="server" OnClick="btnSaveSports_Click" Text="Lagre" />
     <asp:Label ID="Ut" runat="server"></asp:Label>
+    <asp:Button ID="btnSaveSports" runat="server" OnClick="btnSaveSports_Click" Text="Lagre" />
 </asp:Content>
 
