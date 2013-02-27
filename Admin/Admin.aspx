@@ -7,9 +7,9 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">    
     <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="User" DataTextField="UserName" DataValueField="UserId" Height="16px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="127px">
     </asp:DropDownList>
-    <asp:SqlDataSource ID="User" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserId], [UserName] FROM [Users]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="User" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [UserId], [UserName] FROM [Users] ORDER BY [UserName]"></asp:SqlDataSource>
 &nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SportUser" DataTextField="Sport" DataValueField="Id" Height="38px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="265px">
+    <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SportUser" DataTextField="Sport" DataValueField="Id" Height="38px" OnSelectedIndexChanged="CheckBoxList1_SelectedIndexChanged" Width="265px" RepeatColumns="3">
     </asp:CheckBoxList>
     <asp:SqlDataSource ID="SportUser" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [Sport]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SportsLinkedToUser" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT UsersInSport.SportID

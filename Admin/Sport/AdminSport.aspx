@@ -87,7 +87,7 @@
     </asp:ListView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [UserInSport] WHERE [SportID] = @original_Id
 DELETE FROM [Sport] WHERE [Id] = @original_Id" InsertCommand="INSERT INTO [Sport] ([Sport]) VALUES (@Sport)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * 
-FROM [Sport],[UserInSport]" UpdateCommand="UPDATE [Sport] SET [Sport] = @Sport WHERE [Id] = @original_Id">
+FROM [Sport]" UpdateCommand="UPDATE [Sport] SET [Sport] = @Sport WHERE [Id] = @original_Id">
         <DeleteParameters>
             <asp:Parameter Name="original_Id" Type="Int32" />
         </DeleteParameters>
