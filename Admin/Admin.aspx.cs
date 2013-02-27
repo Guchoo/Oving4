@@ -42,8 +42,8 @@ public partial class Admin_Admin : System.Web.UI.Page
 
         SqlConnection MyConnection;
         SqlCommand MyCommand;
-        SqlDataAdapter MyAdapter;
-        DataTable MyTable;
+       // SqlDataAdapter MyAdapter;
+       // DataTable MyTable;
 
             MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             string query = @"
@@ -78,14 +78,14 @@ public partial class Admin_Admin : System.Web.UI.Page
 
         MyConnection.Close();
 
-        MyAdapter = new SqlDataAdapter();
-        MyAdapter.SelectCommand = MyCommand;
+        // MyAdapter = new SqlDataAdapter();
+        // MyAdapter.SelectCommand = MyCommand;
         //MyAdapter.Fill(MyTable);
 
         //GridView1.DataSource = MyTable.DefaultView;
         //GridView1.DataBind();
 
-        MyAdapter.Dispose();
+        // MyAdapter.Dispose();
         MyCommand.Dispose();
         MyConnection.Dispose();  
 
