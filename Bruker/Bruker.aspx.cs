@@ -13,8 +13,7 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string UserID = Request.QueryString["UID"];  // What is this? - Thomas
-
+        
         string userIDstring = Membership.GetUser().ProviderUserKey.ToString();
 
         SqlConnection MyConnection;
@@ -22,8 +21,10 @@ public partial class Default2 : System.Web.UI.Page
 
         MyConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         string query = @"
-            select Sport.Id,Sport from Sport 
-            where Sport.Id = UserInSport.SportID AND UserInSport.UserID = @userid";
+            SELECT [Sport].Sport, [Users].UserName 
+            FROM [UserInSport],[Users],[Sport]
+            WHERE [Users].UserId = [UserInSport].UserID AND [Sport].Id = [UserInSport].SportID
+            ORDER BY [Sport].Sport, [Users].UserName";
 
         MyCommand = new SqlCommand(query, MyConnection);
         MyCommand.Parameters.Add(new SqlParameter("@userid", userIDstring));
@@ -32,22 +33,29 @@ public partial class Default2 : System.Web.UI.Page
 
         //Funker ikke nå 
 
-        //SqlDataReader reader = MyCommand.ExecuteReader();
+        SqlDataReader reader = MyCommand.ExecuteReader();
+
+        string sportOutString;
+        string sportName;
+        string memberName;
+        string previousSport = null;
+        lblOutput.Text = "";
+
+        while (reader.Read())
+        {
+            sportName = (string)reader["Sport"];
+            memberName = (string)reader["UserName"];
+            sportOutString = (sportName == previousSport)? "": "<br /><h3>" + sportName + "</h3>";
+
+            lblOutput.Text += sportOutString + " - " + memberName + "<br />";
+
+            previousSport = sportName;
+        }
 
 
+        MyConnection.Close();
 
-//        while (reader.Read())
-//        {
-//            int sportId = (int)reader["Id"];
-//            string sportName = (string)reader["Sport"];
-
-            
-//        }
-
-
-//        MyConnection.Close();
-
-//        MyCommand.Dispose();
-//        MyConnection.Dispose();  
+        MyCommand.Dispose();
+        MyConnection.Dispose();  
     }
 }

@@ -66,10 +66,17 @@ public partial class SiteMaster : MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         bool AdminTest = HttpContext.Current.User.IsInRole("Administrator"); //Silje
-        if (AdminTest)
+        if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
-            AdminLink.Visible = true;
-            AdminLink.Enabled = true;
+
+            BrukerLink.Visible = true;
+            BrukerLink.Enabled = true;
+
+            if (AdminTest)
+            {
+                AdminLink.Visible = true;
+                AdminLink.Enabled = true;
+            }
         }
     }
 }

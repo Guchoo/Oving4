@@ -66,6 +66,8 @@
                         <li><a runat="server" href="~/Contact.aspx">Contact</a></li>
                         <li><asp:HyperLink ID="AdminLink" runat="server" Enabled="false" Visible="false" NavigateUrl="~/Admin/Root.aspx">
                             Admin</asp:HyperLink></li> <%--Silje --%>
+                        <li><asp:HyperLink ID="BrukerLink" runat="server" Enabled="false" Visible="false" NavigateUrl="~/Bruker/Bruker.aspx">
+                            Bruker</asp:HyperLink></li>
                     </ul>
                 </nav>
             </div>
